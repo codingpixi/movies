@@ -1,3 +1,17 @@
+
+/* WHAT DO YOU WANT TO DISPLAY
+  LEVEL 1
+  Movie Name = original_title
+  Release Date = release_date
+  Description = overview
+  Poster = poster_path = https://image.tmdb.org/t/p/w500/ 38bmEXmuJuInLs9dwfgOGCHmZ7l.jpg
+
+  LEVEL 2
+  Input Query
+*/
+
+
+
 function aboutMovie (json) {
       console.log(json);
 
@@ -7,22 +21,50 @@ function aboutMovie (json) {
     let release = document.querySelector('.releaseDate');
     release.textContent = json.results[0].release_date;
 
+    let description = document.querySelector('.movieDescription');
+    description.textContent = json.results[0].overview;
+
     let avatar = document.querySelector('img');
-    avatar.src = 'https://image.tmdb.org/t/p/w500' + json.results[0].poster_path ;
+    avatar.src = 'https://image.tmdb.org/t/p/w500' + json.results[0].poster_path;
+
+    let inputButton = document.querySelector('.selectMovie')
+    //document.textContent = json.results[0].object;
+    button.addEventListener('click', selectMovie);
     }
 
     fetch("https://api.themoviedb.org/3/search/movie?api_key=" + key +"&query=Jack+Reacher")
     .then(response => response.json())
     .then(aboutMovie);
 
-    /*
-    Movie Name = original_title
-    Release Date = release_date
-    Poster = poster_path = https://image.tmdb.org/t/p/w500/ 38bmEXmuJuInLs9dwfgOGCHmZ7l.jpg
-    Description = overview
+/* SECTION 2 ATTEMPT
+    var apiUrl = "https://api.themoviedb.org/3/search/movie?api_key=";
+    var apiKey = " + key +";
+    var queryText = "&query=";
+    //var input = "Jack+Reacher";
 
-    .results[0]
-    */
+    // CHANGES TO input var selectMovie = "";
+
+    function selection = () {
+      var button = select('.submit');
+      selection.addEventListener('click', submit);
+
+      input = selectMovie('.submit');
+
+    function
+      var url = apiUrl + apiKey + queryText + input.value() ; //selectMovie
+    }
+*/
+    fetch("https://api.themoviedb.org/3/search/movie?api_key="+"key"+"&query="+"input.value")
+    .then(response => response.json())
+    .then(aboutMovie);
+
+
+
+
+
+
+
+
 
     //let json = { name: 'me', location: 'here'}
     // fetch("https://api.themoviedb.org/3/search/movie?api_key=" + key +"&query=Jack+Reacher")
