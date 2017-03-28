@@ -27,7 +27,7 @@ function aboutMovie (json) {
     let avatar = document.querySelector('img');
     avatar.src = 'https://image.tmdb.org/t/p/w500' + json.results[0].poster_path;
 
-    let inputButton = document.querySelector('.selectMovie')
+    let inputButton = document.querySelector('button')
     //document.textContent = json.results[0].object;
     button.addEventListener('click', selectMovie);
     }
@@ -36,6 +36,8 @@ function aboutMovie (json) {
     .then(response => response.json())
     .then(aboutMovie);
 
+
+let button = document
 /* SECTION 2 ATTEMPT
     var apiUrl = "https://api.themoviedb.org/3/search/movie?api_key=";
     var apiKey = " + key +";
@@ -57,12 +59,6 @@ function aboutMovie (json) {
     fetch("https://api.themoviedb.org/3/search/movie?api_key="+"key"+"&query="+"input.value")
     .then(response => response.json())
     .then(aboutMovie);
-
-
-
-
-
-
 
 
 
@@ -93,3 +89,9 @@ function aboutMovie (json) {
 
   secondPromise.then(logJson);
   */
+
+
+  // const sumArray = (a,b) => a + b;
+  // function sumArray (a,b) {
+  //   return 1 + b;
+  // }
