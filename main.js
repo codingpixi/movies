@@ -1,3 +1,25 @@
+// Wednesday, March 29
+// 1. what is the total budget of the ten most popular movies in the db?
+// let popularMovies = getData('movie/popular').then(json => console.log(json));
+//
+//
+// 2. which genre has the highest average popularity for its top 20 movies?
+//
+// 3. which of the top 20 horror movies have no spoken language besides English?
+//
+// 4. who had the most starring roles in the top 20 comedies?
+//
+// 5. how many movies have the stars of the most popular movie of last year appeared in? (list each star's name with the number of movies)
+//
+// ****
+//
+// Expand your site to show more things.
+// - when a user searches for a movie, show a list of recommended movies based on it.
+//   - display the recommended movies only if they are more popular than the first movie
+//
+// */
+
+// --------------------------------------------
 
 /* WHAT DO YOU WANT TO DISPLAY
   LEVEL 1
@@ -9,7 +31,6 @@
   LEVEL 2
   Input Query
 */
-
 
 
 function aboutMovie (json) {
@@ -56,9 +77,9 @@ let button = document
       var url = apiUrl + apiKey + queryText + input.value() ; //selectMovie
     }
 */
-    fetch("https://api.themoviedb.org/3/search/movie?api_key="+"key"+"&query="+"input.value")
-    .then(response => response.json())
-    .then(aboutMovie);
+    // fetch("https://api.themoviedb.org/3/search/movie?api_key="+"key"+"&query="+"input.value")
+    // .then(response => response.json())
+    // .then(aboutMovie);
 
 
 
