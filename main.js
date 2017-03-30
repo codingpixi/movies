@@ -22,26 +22,43 @@ function aboutMovie (json) {
       console.log(json);
 
     let title = document.querySelector('.originalTitle');
-    title.textContent = json.results[0].title;
+    title.textContent = json.title;
 
     let release = document.querySelector('.releaseDate');
-    release.textContent = json.results[0].release_date;
+    release.textContent = json.release_date;
 
     let description = document.querySelector('.movieDescription');
-    description.textContent = json.results[0].overview;
+    description.textContent = json.overview;
 
     let avatar = document.querySelector('img');
-    avatar.src = 'https://image.tmdb.org/t/p/w500' + json.results[0].poster_path;
+    avatar.src = 'https://image.tmdb.org/t/p/w500' + json.poster_path;
 }
 
-fetch("https://api.themoviedb.org/3/search/movie?api_key=" + key +"&query=Jack+Reacher")
-.then(response => response.json())
-.then(aboutMovie);
+// fetch("https://api.themoviedb.org/3/search/movie?api_key=" + key +"&query=Jack+Reacher")
+// .then(response => response.json())
+// .then(aboutMovie);
+
+let searchButton = document.querySelector('#searchButton');
+searchButton.addEventListener('click', recognizeInput);
 
 function recognizeInput (event){
   console.log("button clicked");
+
+  // let searchButton = document.querySelector('#searchButton');
+
+  let userInput = document.getElementById('inputValue').value;
+
+  console.log(userInput);
+
+  fetch("https://api.themoviedb.org/3/search/movie?api_key=" + key + "&query=" + userInput)
+    .then(res => res.json())
+    .then(object => object.results[0])
+    .then(aboutMovie); //refernece page it goes on
 }
 
-    let searchButton = document.querySelector('#searchButton');
+
+
+
+
+
     //document.textContent = json.results[0].object;
-    searchButton.addEventListener('click', recognizeInput);
