@@ -10,9 +10,9 @@
 
     <p>
       Select Movie:
-      <input class="selectMovie" type="text" name="" value="">
+      <input id="inputValue" placeholder="Choose a Movie"></input>
 
-      <button id="#inputButton" placeholder="Choose a Movie" name="submit">Submit</button>
+      <button id="searchButton">Submit</button>
     </p>
     <h2>The movie of choice is <span class="originalTitle"></span></h2>
     <img src=""/>
@@ -22,95 +22,6 @@
 
     <script src="api_key.js"></script>
     <script src="main.js"></script>
-
-    <script>
-       function getData (url, params) {
-         let key = "1922c66ebaed294ac65a15f52834a49b";
-         return fetch(`https://api.themoviedb.org/3/${url}?api_key=${key}&${params}`)
-           .then(response => response.json())
-
-       }
-       function getMovie (movieData) {
-         return getData(`movie/${movieData.id}`)
-       }
-       function combineBudget (total, movie) {
-         console.log('current movie budget', movie.budget);
-         return total + movie.budget;
-       }
-       function showCombinedBudget (movies) {
-         let allTheMonies = movies.reduce(combineBudget, 0);
-         console.log('these things cost ', allTheMonies);
-       }
-         getData('movie/popular')
-           .then(json => {
-             let topTen = json.results.slice(0, 10);
-             return topTen.map(getMovie)
-           })
-           .then(moviePromises => Promise.all(moviePromises))
-           .then(showCombinedBudget);
-
-// QUESTION 5 - How many movies have the stars of the most popular movie of last year appeared in? (list each star's name with the number of movies)
-       function getActorCredits (actor) {
-         console.log('working with ', actor.name);
-         return getData(`person/${actor.id}/movie_credits`)
-       }
-         getData('discover/movie', 'primary_release_year=2016')
-           .then(json => getData(`movie/${json.results[0].id}/credits`))
-           .then(json => json.cast.map(getActorCredits))
-           .then(wtf => console.log(wtf));
-          // .length
-          // return getData('')
-          // .then(actorPromises => Promise.all(actorPromises))
-          // .then(getActorCredits);
-
-
-
-     </script>
-
-
-<!-- <script>
-
-    function getData (url, params) {
-      let key = "e3ef1841a205cab9e2bca97714ba77f8";
-      return
-      fetch(`https://api.themoviedb.org/3/${url}?api_key=${key}&${para,s}`)
-      .then(response => response.json())
-    }
-
-    function getMovie (movieData) {
-      // console.log('working with ', movieData.title);
-      return getData(`movie/${movieData.id}`)
-      //.then(json => console.log(json))//This is happening for each individual movie
-    }
-
-    function combineBudget (total, movie) {
-      console.console.log('current movie budget' , movie.budget);
-      return total + movie.budget;
-    }
-
-    function showCombinedBudget (movies) {
-      let allTheMonies =  movies.reduce(combineBudget, 0);
-      console.log('these things cost '), allTheMonies);
-    }
-
-    getData('movie/popular')
-      .then(json => {let topTen = json.resuls.slice(0, 10);
-        return topTen.map(getMovie)
-      })
-      .then(moviePromises => Promise.all(moviePromises))
-      .then(showCombinedBudget);
-
-      //Question 5
-      function getActorCredits (actor) {
-        console.log('working with ', actor.name);
-        return getData('person/{$actor.id} movie_credits')
-      }
-      getData('discover/movie', 'primary_release_year=2016')
-      .then(json => getData(`movie/${json.results[0].id}/credits`))
-      .then(json => json.cast.map(getActorCredits))
-      .then(wtf => console.log(wtf));
-    </script>
--->
   </body>
 
 </html>
