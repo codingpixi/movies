@@ -18,8 +18,8 @@
 */
 
 
-function aboutMovie (json) {
-      console.log(json);
+function aboutMovie(json) {
+    console.log(json);
 
     let title = document.querySelector('.originalTitle');
     title.textContent = json.title;
@@ -41,24 +41,17 @@ function aboutMovie (json) {
 let searchButton = document.querySelector('#searchButton');
 searchButton.addEventListener('click', recognizeInput);
 
-function recognizeInput (event){
-  console.log("button clicked");
+function recognizeInput(event) {
+    console.log("button clicked");
 
-  // let searchButton = document.querySelector('#searchButton');
+    // let searchButton = document.querySelector('#searchButton');
 
-  let userInput = document.getElementById('inputValue').value;
+    let userInput = document.getElementById('inputValue').value;
 
-  console.log(userInput);
+    console.log(userInput);
 
-  fetch("https://api.themoviedb.org/3/search/movie?api_key=" + key + "&query=" + userInput)
-    .then(res => res.json())
-    .then(object => object.results[0])
-    .then(aboutMovie); //refernece page it goes on
+    fetch("https://api.themoviedb.org/3/search/movie?api_key=" + key + "&query=" + userInput)
+        .then(res => res.json())
+        .then(object => object.results[0])
+        .then(aboutMovie); //refernece page it goes on
 }
-
-
-
-
-
-
-    //document.textContent = json.results[0].object;

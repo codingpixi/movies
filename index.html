@@ -1,26 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title>3.1 Movies</title>
-  </head>
-  <body>
-    <h1>Assignment 3.1 Movies</h1>
+    <title>MoviesDB</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+
+<body>
+    <h1>What Was That Movie Again</h1>
 
     <p>
-      Select Movie:
-      <input id="inputValue" placeholder="Choose a Movie"></input>
+        Select Movie:
+        <input id="inputValue" placeholder="Choose a Movie"></input>
 
-      <button id="searchButton">Submit</button>
+        <button id="searchButton">Submit</button>
     </p>
-    <h2>The movie of choice is <span class="originalTitle"></span></h2>
-    <img src=""/>
-    <p>This film was released on  <span class="releaseDate"></span></p>
-    <p class="movieDescription"></p>
 
+    <div class="container">
+        <article>
+            <div class="left">
+                <h2>The movie of choice is <span class="originalTitle"></span></h2>
+                <img src="" />
+            </div>
+        </article>
 
+        <article>
+            <div class="right">
+                <p>This film was released on <span class="releaseDate"></span></p>
+                <p class="movieDescription"></p>
+            </div>
+    </div>
+    </article>
     <script src="api_key.js"></script>
     <script src="main.js"></script>
-  </body>
+</body>
 
 </html>
